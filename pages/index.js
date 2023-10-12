@@ -6,10 +6,11 @@ import { useState, useEffect } from "react"
 import { ethers } from "ethers";
 import migrationAbi from "../contracts/migration.json"
 import oftAbi from "../contracts/oft.json"
-import { oldTokenAddresses, mockAddresses, oftTestnetAddresses, oftAddresses, migrationAddresses, bridges } from "./addresses";
+import { oldTokenAddresses, mockAddresses, oftTestnetAddresses, oftAddresses, migrationAddresses, bridges, migrationAddressesExpired } from "./addresses";
 const lzChainIds = require("./chainIds.json");
 
 const TESTNET = true;
+const EXPIRED = false;
 
 export default function Home() {
   const { active, account, library, activate, deactivate } = useWeb3React()
@@ -102,7 +103,7 @@ export default function Home() {
   }
 
   async function migrateToken() {
-    const contract = new Contract(migrationAbi, migrationAddresses.get(chainId), {
+    const contract = new Contract(migrationAbi, EXPIRED ? migrationAddressesExpired.get(chainId) : migrationAddresses.get(chainId), {
       from: account, // default from address
     });
     contract.setProvider(library);
@@ -119,7 +120,7 @@ export default function Home() {
     contract.setProvider(library);
 
     let amount = ethers.utils.parseEther(inputMigrate);
-    await contract.methods.approve(migrationAddresses.get(chainId), amount).send({ from: account })
+    await contract.methods.approve(EXPIRED ? migrationAddressesExpired.get(chainId) : migrationAddresses.get(chainId), amount).send({ from: account })
     await updateTokenState();
   }
 

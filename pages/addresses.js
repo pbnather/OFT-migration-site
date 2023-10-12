@@ -22,11 +22,17 @@ mockAddresses.set("mainnet", "");
 mockAddresses.set("avalanche", "");
 mockAddresses.set("fantom", "");
 
+export const migrationAddressesExpired = new Map();
+
+migrationAddressesExpired.set("11155111", "0xe996499a2Dac231cb141Aee109EbDb0C4E476D5e");
+migrationAddressesExpired.set("43113", "0x6Ab47Af13AEa157c3022A0B9e7B815813Fe85268");
+migrationAddressesExpired.set("4002", "0xFa95aad2775102195666Ea0523914f2dA22412e3");
+
 export const migrationAddresses = new Map();
 
-migrationAddresses.set("11155111", "0xe996499a2Dac231cb141Aee109EbDb0C4E476D5e");
-migrationAddresses.set("43113", "0x6Ab47Af13AEa157c3022A0B9e7B815813Fe85268");
-migrationAddresses.set("4002", "0xFa95aad2775102195666Ea0523914f2dA22412e3");
+migrationAddresses.set("11155111", "0x7A1088c6C72CEC7D5295e46FA3d38eE5335a371e");
+migrationAddresses.set("43113", "0xC4E2e6bB951a80293F2A906EA6b02db832DEee86");
+migrationAddresses.set("4002", "0xa4217EfC80B8B354771489dde0e65A16d8CD0698");
 migrationAddresses.set("mainnet", "");
 migrationAddresses.set("avalanche", "");
 migrationAddresses.set("fantom", "");
