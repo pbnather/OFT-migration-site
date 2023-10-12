@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { ethers } from "ethers";
 import migrationAbi from "../contracts/migration.json"
 import oftAbi from "../contracts/oft.json"
-import { oldTokenAddresses, mockAddresses, oftTestnetAddresses, oftAddresses, migrationAddresses, bridges, migrationAddressesExpired } from "./addresses";
+import { oldTokenAddresses, mockAddresses, oftTestnetAddresses, oftAddresses, migrationAddresses, bridges, migrationAddressesExpired } from "../addresses.js";
 const lzChainIds = require("./chainIds.json");
 
 const TESTNET = true;
